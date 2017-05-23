@@ -155,9 +155,16 @@ class SigmaDeltaModulator(object):
         if not values:
             values = self.right_modulated
 
+        avg_values = []
+        for i in range(int(float(len(values))/float(self.oversample))):
+            l = values[i*self.oversample:(i+1)*self.oversample]
+            l = [float(x) for x in l]
+            avg_values.append(sum(l)/self.oversample)
+
+        values = avg_values
         Fs = self.sample_rate
-        sample_time = float(len(values))/(Fs * self.oversample)
-        Ts = 1.0/(Fs * self.oversample)  # sampling interval
+        sample_time = float(len(values))/Fs
+        Ts = 1.0/Fs  # sampling interval
         t = np.arange(0, sample_time, Ts)  # time vector
 
         t = np.array(t[0:len(values)])
