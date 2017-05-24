@@ -1,0 +1,14 @@
+#Created by Constraints Editor (xc6slx9-tqg144-3) - 2012/11/05
+NET "sck" TNM_NET = sck;
+TIMESPEC TS_sck = PERIOD "sck" 20 MHz HIGH 50%;
+
+# PlanAhead Generated physical constraints 
+NET "rst_n" LOC = P38 | IOSTANDARD = LVTTL;
+
+NET "bck" LOC = P23 | IOSTANDARD = LVTTL;
+NET "ws" LOC = P10 | IOSTANDARD = LVTTL;
+NET "data" LOC = P12 | IOSTANDARD = LVTTL;
+NET "sck" LOC = P21 | IOSTANDARD = LVTTL;
+
+NET "left" LOC = P1 | IOSTANDARD = LVTTL;
+NET "right" LOC = P5 | IOSTANDARD = LVTTL;
